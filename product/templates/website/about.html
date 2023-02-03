@@ -1,0 +1,21 @@
+{% extends 'website/header.html' %} {% block content %}
+{% load static %}
+<body style="background:linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url({% static 'website/assets/img/bg.jpg' %});">
+    <h1 class="text-center text-white d-none d-lg-block site-heading"><span class="text-primary site-heading-upper mb-3">Short term and long term rentals</span><span class="site-heading-lower">Jannati Property management</span></h1>
+    <section class="page-section about-heading">
+        <div class="container"><img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{% static 'website/assets/img/about.jpg' %}">
+            <div class="about-heading-content">
+                <div class="row">
+                    <div class="col-lg-10 col-xl-9 mx-auto">
+                        <div class="bg-faded rounded p-5">
+                            <h2 class="section-heading mb-4"><span class="section-heading-upper">Jannati Property Management</span><span class="section-heading-lower">&nbsp;About Us</span></h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&nbsp;</p>
+                            <p class="mb-0"><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span><span></span><span></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+{% endblock %}

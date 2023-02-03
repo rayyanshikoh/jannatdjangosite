@@ -1,0 +1,56 @@
+{% extends 'website/header.html' %} {% block content %}
+{% load static %}
+<body style="background:linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url({% static 'website/assets/img/bg.jpg' %});">
+    <h1 class="text-center text-white d-none d-lg-block site-heading"><span class="text-primary site-heading-upper mb-3">Short-term and long-term rentals</span><span class="site-heading-lower">Jannatti Property Management</span></h1>
+    <section class="page-section clearfix">
+        <div class="container">
+            <div class="intro"><img class="img-fluid intro-img mb-3 mb-lg-0 rounded" src="{% static 'website/assets/img/intro.jpg' %}">
+                <div class="text-center intro-text p-5 rounded bg-faded">
+                    <h2 class="section-heading mb-4"><span class="section-heading-upper">Our Properties:</span><span class="section-heading-lower">Worth It!</span></h2>
+                    <p class="mb-3">Filler Content Filler Content Filler Content Filler Content. Filler Content, Filler Content.</p>
+                    <button class="btn btn-primary" type="button" data-bs-target="#modal-1" data-bs-toggle="modal">Start Searching!</button>
+                    <div class="modal fade" role="dialog" tabindex="-1" id="modal-1">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Property Search</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="" method="POST">
+                                        {% csrf_token %}
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p>Start Date</p><input class="form-control" type="date" name="start_date" required>
+                                                </div>
+                                                <div class="col">
+                                                    <p>End Date</p><input class="form-control" type="date" name="end_date" required>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <button class="btn btn-primary" type="submit">Search</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer"></div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <section class="page-section cta">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <div class="text-center cta-inner rounded">
+                        <h2 class="section-heading mb-4"><span class="section-heading-upper">Our Promise</span><span class="section-heading-lower">To You</span></h2>
+                        <p class="mb-0">Filler Content Filler Content. Filler ContentFiller ContentFiller Content. Filler Content Filler Content. Filler ContentFiller ContentFiller Content.Filler Content Filler Content. Filler ContentFiller ContentFiller Content.Filler Content Filler Content. Filler ContentFiller ContentFiller Content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+{% endblock %}

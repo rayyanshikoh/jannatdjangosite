@@ -1,0 +1,106 @@
+{% extends 'website/header.html' %} {% block content %}
+{% load static %}
+<body style="background:linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url({% static 'website/assets/img/bg.jpg' %});">
+    <h1 class="text-center text-white d-none d-lg-block site-heading"><span class="text-primary site-heading-upper mb-3"><strong>SHORT TERM AND LONG TERM RENTALS</strong></span><span class="site-heading-lower">Jannati Property Management</span></h1>
+    {% if listing %}
+        {% for list in listing %}
+            <section class="page-section">
+                <div class="container">
+                    <div class="product-item">
+                        <div class="bg-faded p-5 rounded">
+                            <h1>Confirmation Page</h1>
+                            <br>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <h2>Product</h2>
+                                        <br>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p>Listing: </p>
+                                                </div>
+                                                <div class="col">
+                                                    <p>{{ list.name }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p>Lease date: </p>
+                                                </div>
+                                                <div class="col">
+                                                    <p>{{ lease_date }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p>Clear date: </p>
+                                                </div>
+                                                <div class="col">
+                                                    <p>{{ clear_date }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <h2>Customer Info</h2>
+                                        <br>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p>Customer name: </p>
+                                                </div>
+                                                <div class="col">
+                                                    <p>{{ first_name }} {{ last_name }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p>Date of Birth: </p>
+                                                </div>
+                                                <div class="col">
+                                                    <p>{{ date_of_birth }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p>Email address: </p>
+                                                </div>
+                                                <div class="col">
+                                                    <p>{{ email }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p>Phone number: </p>
+                                                </div>
+                                                <div class="col">
+                                                    <p>{{ phone_number }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <form action="">
+                                <input type="button" value="Pay {{ price }}">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
+{% endblock %}

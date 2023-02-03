@@ -1,0 +1,71 @@
+{% extends 'website/header.html' %} {% block content %}
+{% load static %}
+<body style="background:linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url({% static 'website/assets/img/bg.jpg' %});">
+    <h1 class="text-center text-white d-none d-lg-block site-heading"><span class="text-primary site-heading-upper mb-3"><strong>SHORT TERM AND LONG TERM RENTALS</strong></span><span class="site-heading-lower">Jannati Property Management</span></h1>
+    {% if listing %}
+        {% for list in listing %}
+        <style>
+            a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    color:inherit; 
+    text-decoration:none; 
+    cursor:pointer;  
+}
+        </style>
+            <section class="page-section">
+                <div class="container">
+                    <div class="product-item">
+                        <div class="d-flex product-item-title">
+                            <div class="d-flex me-auto bg-faded p-5 rounded">
+                                <h2 class="section-heading mb-0"><span class="section-heading-upper">{{ list.catchphrase }}</span><span class="section-heading-lower">{{ list.name }}</span></h2>
+                            </div>
+                        </div><img class="img-fluid d-flex mx-auto product-item-img mb-3 mb-lg-0 rounded" src="{{ list.picture_0.url }}">
+                        <div class="bg-faded p-5 rounded">
+                            <p class="mb-0">{{ list.description }}</p>
+                            <br>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <h1>Cost</h1>
+                                        <p>Short term - ${{ list.short_term_price }}</p>
+                                        <p>Long term - ${{ list.long_term_price }}</p>
+                                    </div>
+                                    <div class="col">
+                                        <h1>Check Availability</h1>
+                                        <form action="" method="post">
+                                            {% csrf_token %}
+                                            <div>
+                                                {% if start_date %}
+                                                    <label for="{{ form.start_date.id_for_label }}">Start Date: </label>
+                                                    <input class="form-control" type="date" name="start_date" value="{{ start_date }}">
+                                                {% else %}
+                                                    <label for="{{ form.start_date.id_for_label }}">Start Date: </label>
+                                                    <input class="form-control" type="date" name="start_date">
+                                                {% endif %}
+                                                {% if end_date %}
+                                                    <label for="{{ form.end_date.id_for_label }}">End Date: </label>
+                                                    <input class="form-control" type="date" name="end_date" value="{{ end_date }}">
+                                                {% else %}
+                                                    <label for="{{ form.end_date.id_for_label }}">End Date: </label>
+                                                    <input class="form-control" type="date" name="end_date">
+                                                {% endif %}
+                                                    <br>
+                                                <button class="btn btn-primary" type="submit">Check Availability</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
+{% endblock %}

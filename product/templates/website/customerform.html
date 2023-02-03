@@ -1,0 +1,40 @@
+{% extends 'website/header.html' %} {% block content %}
+{% load static %}
+<body style="background:linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url({% static 'website/assets/img/bg.jpg' %});">
+    <h1 class="text-center text-white d-none d-lg-block site-heading"><span class="text-primary site-heading-upper mb-3"><strong>SHORT TERM AND LONG TERM RENTALS</strong></span><span class="site-heading-lower">Jannati Property Management</span></h1>
+    {% if listing %}
+        {% for list in listing %}
+            <section class="page-section">
+                <div class="container">
+                    <div class="product-item">
+                        <div class="bg-faded p-5 rounded">
+                            <!-- <p class="mb-0">{{ list.description }}</p> -->
+                            <h1>Personal Information</h1>
+                            <br>
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <label for="{{ form.first_name.id_for_label }}">First Name: </label>
+                                <input class="form-control" type="text" name="first_name">
+
+                                <label for="{{ form.last_name.id_for_label }}">Last Name: </label>
+                                <input class="form-control" type="text" name="last_name">
+
+                                <label for="{{ form.date_of_birth.id_for_label }}">Date of Birth: </label>
+                                <input class="form-control" type="date" name="date_of_birth">
+
+                                <label for="{{ form.email.id_for_label }}">Email Address: </label>
+                                <input class="form-control" type="email" name="email">
+
+                                <label for="{{ form.phone_number.id_for_label }}">Phone Number: </label>
+                                <input class="form-control" type="text" name="phone_number">
+                                <input type="submit" value="Submit - ${{ price }}">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
+{% endblock %}
